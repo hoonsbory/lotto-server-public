@@ -1,0 +1,49 @@
+type WinningNum {
+    _id : Int!
+    num1 : Int!
+    num2 : Int!
+    num3 : Int!
+    num4 : Int!
+    num5 : Int!
+    num6 : Int!
+    bonus : Int!
+}
+
+type ResultSum{
+    _id : String!
+    first : Int!
+    second : Int!
+    third : Int!
+    fourth : Int!
+    fifth : Int!
+    last : Int!
+}
+
+
+type WinData{
+    num1 : [Int]
+    num2 : [Int]
+    num3 : [Int]
+    num4 : [Int]
+    num5 : [Int]
+    num6 : [Int]
+    rank : String
+    name : String
+    time : String
+}
+
+
+
+type Query {
+    winningNum(_id: Int!): WinningNum!
+    resultSum(_id: String!): ResultSum!
+    winData:[WinData]!
+    winDataByRank(rank: String!, page: Int!):[WinData]!
+    roundSize:Int!
+
+}
+
+type Mutation {
+    addNum(_id : Int!,num1 : Int!,num2 : Int!,num3 : Int!,num4 : Int!,num5 : Int!, num6 : Int!, bonus : Int!): WinningNum!
+    deleteNum(_id: Int!): Boolean!
+}
